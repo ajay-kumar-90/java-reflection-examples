@@ -1,5 +1,7 @@
 package constructors;
 
+import java.util.StringJoiner;
+
 public class Person {
     private final Address address;
     private final String name;
@@ -27,5 +29,14 @@ public class Person {
         this.name = "anonymous";
         this.age = 0;
         this.address = null;
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Person.class.getSimpleName() + "[", "]")
+                .add("address=" + address)
+                .add("name='" + name + "'")
+                .add("age=" + age)
+                .toString();
     }
 }
